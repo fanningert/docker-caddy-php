@@ -12,7 +12,7 @@ ln -s /config/php.ini /etc/php7/php.ini
 
 # add
 for file in /config/phpext/*.ini; do
-  cat /config/phpext/$(basename file) > /etc/php7/conf.d/$(basename file)
+  cat /config/phpext/$(basename "$file") > /etc/php7/conf.d/$(basename "$file")
 done
 
 chmod +x /conf/start_php.sh
