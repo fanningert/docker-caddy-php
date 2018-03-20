@@ -17,6 +17,9 @@ ADD root/ /
 
 RUN chmod -v +x /etc/services.d/*/run /etc/cont-init.d/*
 
+RUN mv /etc/php7/php.ini /app/php.ini
+RUN mv /etc/php7/php-fpm.d/www.conf /app/php-fpm_www.conf
+
 # Replace values
-RUN /bin/sed -i -- 's/user = nobody/user = app/g' /etc/php7/php-fpm.d/www.conf
-RUN /bin/sed -i -- 's/group = nobody/group = users/g' /etc/php7/php-fpm.d/www.conf
+RUN /bin/sed -i -- 's/user = nobody/user = app/g' /app/php-fpm_www.conf
+RUN /bin/sed -i -- 's/group = nobody/group = users/g' /app/php-fpm_www.conf
