@@ -6,6 +6,7 @@ dockerize -template /app/start_php.sh:/conf/start_php.sh
 dockerize -no-overwrite -template /app/php-fpm_www.conf:/config/php-fpm_www.conf
 dockerize -no-overwrite -template /app/php.ini:/config/php.ini
 
+ln -s /etc/php7/php-fpm.d/www.conf /config/php-fpm_www.conf
 ln -s /etc/php7/php.ini /config/php.ini
 
 chmod +x /conf/start_php.sh
