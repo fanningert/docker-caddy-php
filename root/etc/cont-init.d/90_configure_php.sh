@@ -11,8 +11,9 @@ ln -s /config/php-fpm_www.conf /etc/php7/php-fpm.d/www.conf
 ln -s /config/php.ini /etc/php7/php.ini
 
 # add
+cd /config/phpext
 for file in /config/phpext/*.ini; do
-  cat /config/phpext/$file > /etc/php7/conf.d/$file
+  cat $file > /etc/php7/conf.d/$file
 done
 
 chmod +x /conf/start_php.sh
